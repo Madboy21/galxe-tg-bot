@@ -1,7 +1,7 @@
-const express = require("express");
-const cors = require("cors");
-const { admin, db } = require("./firebase");
-const { verifyTelegramInitData } = require("./utils/telegram");
+import express from "express";
+import cors from "cors";
+import { admin, db } from "./firebase.js";   // ES Module import
+import { verifyTelegramInitData } from "./utils/telegram.js";
 
 const app = express();
 app.use(cors({ origin: true }));
@@ -200,5 +200,5 @@ app.post("/admin/withdrawals/:id/status", requireAdmin, async (req, res) => {
   res.json({ ok: true });
 });
 
-// Vercel export
-module.exports = app;
+// Vercel serverless export
+export default app;
