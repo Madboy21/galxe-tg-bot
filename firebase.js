@@ -1,5 +1,6 @@
-const admin = require("firebase-admin");
+import admin from "firebase-admin";
 
+// যদি কোনো Firebase অ্যাপ ইতিমধ্যেই initialized না থাকে
 if (!admin.apps.length) {
   // FIREBASE_SERVICE_ACCOUNT = one-line JSON string
   const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
@@ -9,4 +10,5 @@ if (!admin.apps.length) {
 }
 
 const db = admin.firestore();
-module.exports = { admin, db };
+
+export { admin, db };
